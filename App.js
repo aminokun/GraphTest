@@ -75,10 +75,15 @@ const HideKeyboard = ({ children }) => (
       </View>
       
       <LineChart
-        style={styles.chart}
+          style={styles.chart}
           data={data}
-          width={Dimensions.get('window').width} // from react-native
-          height={300}
+          width={Dimensions.get('window').width - 20} // from react-native
+          height={Dimensions.get('window').height - 400}
+          bezier
+          xLabelsOffset={100}
+          segments={3}
+          withInnerLines={false}
+          withVerticalLabels={false}
           chartConfig={chartConfig}
       />
         <TouchableOpacity
@@ -129,5 +134,8 @@ const styles = StyleSheet.create({
     fontWeight: 'regular',
     fontSize: 22,
     color: '#fff',
+  },  
+  chart: {
+   borderRadius: 20,
   },  
 });
